@@ -19,6 +19,9 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+# The home page
     path('admin/', admin.site.urls),
-    path('', include('clinica.urls'))
+    path('admin', admin.site.urls),
+    path("", include("authentication.urls")),  # Auth routes - login / register
+    path("", include("clinica.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

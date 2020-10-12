@@ -25,13 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '4kfgz_k#7vj0=sb(_)&#0q3so6)9qfa9wmkaty30kysqqohq_3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'clinica',
 ]
 
@@ -55,10 +52,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'wrl_infosystem.urls'
 
+#LOGIN_REDIRECT_URL = "index"   # Route defined in clinica/urls.py
+#LOGOUT_REDIRECT_URL = "index"  # Route defined in clinica/urls.py
+TEMPLATE_DIR = os.path.join(BASE_DIR, "clinica/templates")  # ROOT dir for templates
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,7 +77,7 @@ WSGI_APPLICATION = 'wrl_infosystem.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -85,7 +86,6 @@ DATABASES = {
         'PASSWORD': 'r44gru',
         'HOST': 'localhost',
         'PORT': '5432',
-
     }
 }
 """
@@ -94,7 +94,7 @@ DATABASES = {
     'default': dj_database_url.config()
 }
 
-
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -136,3 +136,4 @@ STATIC_URL = '/static/'
 MEDIA_URL = 'media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
