@@ -1,12 +1,8 @@
 {% extends "layouts/base.html" %}
-
-{% block title %} Login {% endblock %} 
-
+{% block title %} Login {% endblock %}
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
-
 {% block content %}
-
   <div class="row">
     <div class="col-md-5">
       <div class="card">
@@ -21,54 +17,40 @@
               {% if msg %}
                 <span class="text-danger">{{ msg }}</span>
               {% else %}
-                  Use default credentials: test / ApS12_ZZs8
+                 Faça o Login para acessar o Sistema
               {% endif %}  
           </h6>
-          
           <br />
-
           <form role="form" method="post" action="">
-              
-            {% csrf_token %} 
-
+            {% csrf_token %}
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <label class="bmd-label-floating">Username</label>
+                  <label class="bmd-label-floating">Usuário:</label>
                   {{ form.username }}
                 </div>
               </div>
             </div>
-
             <br />
-
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <label class="bmd-label-floating">Password</label>
+                  <label class="bmd-label-floating">Senha:</label>
                   {{ form.password }}
                 </div>
               </div>
             </div>
-
             <br />
-
-            <button type="submit" name="login" class="btn btn-primary pull-left">Login</button>
-
-            &nbsp; &nbsp; 
+            <button type="submit" name="login" class="btn btn-primary pull-left">Entrar</button>
             <span class="pull-right">
-              Don't have an account? <a href="{% url 'register' %}" class="text-primary">Create</a>
+              Deseja se Cadastrar no Sistema? <a href="{% url 'register' %}" class="text-primary">Cadastrar</a>
             </span>
-
             <div class="clearfix"></div>
-
           </form>
         </div>
       </div>
     </div>
   </div>
-
 {% endblock content %}
-
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}{% endblock javascripts %}

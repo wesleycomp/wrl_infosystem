@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'clinica',
+    'manager',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -52,9 +53,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'wrl_infosystem.urls'
 
-LOGIN_REDIRECT_URL = "index"   # Route defined in clinica/urls.py
-LOGOUT_REDIRECT_URL = "index"  # Route defined in clinica/urls.py
-TEMPLATE_DIR = os.path.join(BASE_DIR, "clinica/templates")  # ROOT dir for templates
+LOGIN_REDIRECT_URL = "index"   # Route defined in manager/urls.py
+LOGOUT_REDIRECT_URL = "index"  # Route defined in manager/urls.py
+TEMPLATE_DIR = os.path.join(BASE_DIR, "manager/templates")  # ROOT dir for templates
 
 TEMPLATES = [
     {
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'wrl_infosystem.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -94,7 +95,7 @@ DATABASES = {
     'default': dj_database_url.config()
 }
 
-
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

@@ -20,8 +20,7 @@ from django.conf import settings
 
 urlpatterns = [
 # The home page
-    path('admin/', admin.site.urls),
     path('admin', admin.site.urls),
-    path("", include("authentication.urls")),  # Auth routes - login / register
-    path("", include("clinica.urls")),
+    path('', include("authentication.urls")),  # Auth routes - login / register
+    path('', include("manager.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
