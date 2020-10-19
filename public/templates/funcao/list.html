@@ -1,0 +1,37 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Page User {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+{% block content %}
+<h1>Função</h1>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cbo</th>
+</tr>
+</thead>
+<tbody>
+{% for funcao in object_list %}
+<tr>
+<td>{{ funcao.funcao }}</td>
+<td>{{ funcao.cbo }}</td>
+
+<td>
+
+    <!--
+<a  href="{% url "funcao_detail"  funcao.id  %}">details</a>
+<a  href="{% url "funcao_edit"  funcao.id  %}">edit</a>
+<a  href="{% url "funcao_delete"  funcao.id  %}">delete</a>
+-->
+</td>
+</tr>
+
+{% endfor %}
+</tbody>
+</table>
+
+{% endblock content %}
