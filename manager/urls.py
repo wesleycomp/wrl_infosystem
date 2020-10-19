@@ -1,8 +1,9 @@
-from django.urls import path
+from django.urls import path, include
 from .views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
-    path('user', UsuarioView.as_view(), name='usuario'),
-    path('funcao', FuncaoView.as_view(), name='funcao'),
-]
+    path("pagina/", include('public.urls', namespace='public')),
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

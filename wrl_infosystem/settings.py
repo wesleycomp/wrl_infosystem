@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'manager',
+    'public',
     'bootstrap4',
 ]
 
@@ -53,14 +55,16 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'wrl_infosystem.urls'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 LOGIN_REDIRECT_URL = "index"   # Route defined in manager/urls.py
+
 LOGOUT_REDIRECT_URL = "index"  # Route defined in manager/urls.py
-TEMPLATE_DIR = os.path.join(BASE_DIR, "manager/templates")  # ROOT dir for templates
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
